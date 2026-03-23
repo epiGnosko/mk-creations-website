@@ -1,10 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>MK Creations | Women's Fashion</title>
     <link rel="stylesheet" href="./style.css">
+    <script src="script.js" defer></script>
 </head>
 
 <body>
@@ -14,25 +16,27 @@
 
         <div class="menu">
             <ul class="nav-links">
-                <li><a href="#">Home</a></li>
-                <li><a href="#">New Arrivals</a></li>
-                <li><a href="#">Ethnic Wear</a></li>
-                <li><a href="#">Western</a></li>
-                <li><a href="#">Contact</a></li>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#new-arrivals">New Arrivals</a></li>
+                <li><a href="#ethnic-wear">Ethnic Wear</a></li>
+                <li><a href="#western">Western</a></li>
+                <li><a href="#contact">Contact</a></li>
+                <li><a href="#" onclick="openCartModal(event)" class="cart-link">🛒 <span id="cart-count"
+                            class="cart-badge">0</span></a></li>
             </ul>
         </div>
     </nav>
 
-    <header class="hero">
+    <header id="home" class="hero">
         <div class="hero-content">
             <h1>Elegance in Every Stitch</h1>
             <p>Explore our exclusive collection of women's apparel.</p>
-            <a href="#" class="btn">Shop Now</a>
+            <a href="#new-arrivals" class="btn">Shop Now</a>
         </div>
     </header>
 
-    <section class="products">
-        <h2>Our Latest Collection</h2>
+    <section id="new-arrivals" class="products">
+        <h2>New Arrivals</h2>
 
         <div class="product-grid">
 
@@ -40,31 +44,133 @@
                 <img src="images/product1.jpeg" class="product-img" alt="Floral Summer Suit">
                 <h3>Floral Summer Suit</h3>
                 <p>₹1,499</p>
-                <a href="https://wa.me/918219986012?text=I want to buy the Floral Summer Suit" class="whatsapp-btn">
-                    Buy on WhatsApp
-                </a>
+                <button class="whatsapp-btn add-to-cart-btn" onclick="addToCart(1, 'Floral Summer Suit', 1499)">
+                    Add to Cart
+                </button>
             </div>
 
             <div class="product-card">
                 <img src="images/product2.jpeg" class="product-img" alt="Classic Co-ord Set">
                 <h3>Classic Co-ord Set</h3>
                 <p>₹2,299</p>
-                <a href="https://wa.me/918219986012?text=I want to buy the Classic Co-ord Set" class="whatsapp-btn">
-                    Buy on WhatsApp
-                </a>
+                <button class="whatsapp-btn add-to-cart-btn" onclick="addToCart(2, 'Classic Co-ord Set', 2299)">
+                    Add to Cart
+                </button>
             </div>
 
             <div class="product-card">
                 <img src="images/product3.jpeg" class="product-img" alt="Designer Kurta">
                 <h3>Designer Kurta</h3>
                 <p>₹1,899</p>
-                <a href="https://wa.me/918219986012?text=I want to buy the Designer Kurta" class="whatsapp-btn">
-                    Buy on WhatsApp
-                </a>
+                <button class="whatsapp-btn add-to-cart-btn" onclick="addToCart(3, 'Designer Kurta', 1899)">
+                    Add to Cart
+                </button>
             </div>
 
         </div>
     </section>
 
+    <section id="ethnic-wear" class="products">
+        <h2>Ethnic Wear</h2>
+
+        <div class="product-grid">
+            <div class="product-card">
+                <div
+                    style="background-color: #eee; height: 350px; display: flex; align-items: center; justify-content: center; color: #888;">
+                    Image Placeholder</div>
+                <h3>Elegant Saree</h3>
+                <p>₹3,499</p>
+                <button class="whatsapp-btn add-to-cart-btn" onclick="addToCart(4, 'Elegant Saree', 3499)">
+                    Add to Cart
+                </button>
+            </div>
+            <div class="product-card">
+                <div
+                    style="background-color: #eee; height: 350px; display: flex; align-items: center; justify-content: center; color: #888;">
+                    Image Placeholder</div>
+                <h3>Embroidered Lehenga</h3>
+                <p>₹5,999</p>
+                <button class="whatsapp-btn add-to-cart-btn" onclick="addToCart(5, 'Embroidered Lehenga', 5999)">
+                    Add to Cart
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <section id="western" class="products">
+        <h2>Western Wear</h2>
+
+        <div class="product-grid">
+            <div class="product-card">
+                <div
+                    style="background-color: #eee; height: 350px; display: flex; align-items: center; justify-content: center; color: #888;">
+                    Image Placeholder</div>
+                <h3>Chic Midi Dress</h3>
+                <p>₹1,899</p>
+                <button class="whatsapp-btn add-to-cart-btn" onclick="addToCart(6, 'Chic Midi Dress', 1899)">
+                    Add to Cart
+                </button>
+            </div>
+            <div class="product-card">
+                <div
+                    style="background-color: #eee; height: 350px; display: flex; align-items: center; justify-content: center; color: #888;">
+                    Image Placeholder</div>
+                <h3>Formal Blazer</h3>
+                <p>₹2,499</p>
+                <button class="whatsapp-btn add-to-cart-btn" onclick="addToCart(7, 'Formal Blazer', 2499)">
+                    Add to Cart
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="products">
+        <h2>Contact Us</h2>
+        <form class="contact-form" onsubmit="event.preventDefault(); alert('Message sent!');">
+            <input type="text" placeholder="Your Name" required>
+            <input type="email" placeholder="Your Email" required>
+            <textarea placeholder="Your Message" rows="5" required></textarea>
+            <button type="submit" class="btn whatsapp-btn" style="border: none; cursor: pointer;">Send Message</button>
+        </form>
+    </section>
+
+    <footer class="footer">
+        <p>&copy; 2026 MK Creations. All Rights Reserved.</p>
+    </footer>
+
+    <!-- Cart Modal -->
+    <div id="cart-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal" onclick="closeCartModal()">&times;</span>
+            <h2>Your Cart</h2>
+            <div id="cart-items">
+                <!-- Cart items will be rendered here -->
+            </div>
+            <div class="cart-total">
+                <strong>Total: ₹<span id="cart-total-price">0</span></strong>
+            </div>
+            <button class="btn checkout-btn whatsapp-btn" onclick="openUpiModal()"
+                style="border:none; cursor:pointer;">Proceed to Checkout</button>
+        </div>
+    </div>
+
+    <!-- UPI Checkout Modal -->
+    <div id="upi-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal" onclick="closeUpiModal()">&times;</span>
+            <h2>Pay via UPI</h2>
+            <p>Scan the code below using any UPI app.</p>
+            <div class="qr-placeholder" style="margin: 20px 0;">
+                <img src="https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=upi://pay?pa=dummy@upi&pn=MK%20Creations"
+                    alt="UPI QR Code" style="border-radius: 8px;">
+                <p style="margin-top: 10px; font-size: 1.2rem; font-weight: bold;">Amount: ₹<span
+                        id="upi-total-price">0</span></p>
+            </div>
+            <button class="btn whatsapp-btn" onclick="simulatePayment()"
+                style="border:none; cursor:pointer; background: #4CAF50;">Simulate Successful Payment</button>
+        </div>
+    </div>
+
 </body>
+
 </html>
